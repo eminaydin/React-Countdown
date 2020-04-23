@@ -9,18 +9,20 @@ class Countdown extends React.Component {
             hours: 0,
             minutes: 0,
             seconds: 0,
-            picture: false,
-            theme: "light"
+
         }
     }
 
 
     componentDidMount() {
-        setInterval(() => this.calculateTheTime(this.props.deadline), 1000)
+        this.interval = setInterval(() => this.calculateTheTime(this.props.deadline), 1000)
 
             ;
     }
 
+    componentWillUnmount() {
+        clearInterval(this.interval)
+    }
     calculateTheTime(deadline) {
         const time = Date.parse(deadline) - Date.parse(new Date());
         const seconds = Math.floor((time / 1000) % 60);
@@ -34,19 +36,18 @@ class Countdown extends React.Component {
             minutes,
             seconds,
         })
-
     }
 
     render() {
-
+        
         return (
-            <div className= {`countdown ${this.state.picture ? "picture" : ""}`}>
-                <div className="info"> 
-                <div>Countdown from {this.props.deadline}</div>
-                <div><span>{this.state.days}</span> days</div>
-                <div><span> {this.state.hours}</span> hours</div>
-                <div><span> {this.state.minutes}</span> minutes</div>
-                <div><span> {this.state.seconds}</span> seconds</div>
+            <div className="countdown" style = {{ background: this.props.picture ? this.props.picture.value : ""}}>
+                <div className="info">
+                    <div>Countdown from {this.props.deadline}</div>
+                    <div><span>{this.state.days}</span> days</div>
+                    <div><span> {this.state.hours}</span> hours</div>
+                    <div><span> {this.state.minutes}</span> minutes</div>
+                    <div><span> {this.state.seconds}</span> seconds</div>
                 </div>
             </div>
         )
