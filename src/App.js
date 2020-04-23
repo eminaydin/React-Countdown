@@ -8,6 +8,7 @@ class App extends React.Component {
     this.state = {
       deadline: "26 April 2020",
       picture: null,
+      newDeadline: "",
     }
   }
   render() {
@@ -17,6 +18,7 @@ class App extends React.Component {
         <Countdown
         deadline = {this.state.deadline}
         picture ={this.state.picture}
+        newDeadline = {this.state.newDeadline}
         />
         <div className="container">
         Be fast to be the first one 
