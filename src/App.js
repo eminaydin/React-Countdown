@@ -12,9 +12,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <div>Countdown from {this.state.deadline}</div>
+        
         <Countdown
         deadline = {this.state.deadline}/>
+        <div className="container">
+        Be fast to be the first one 
+        </div>
       </div>
     );
   }

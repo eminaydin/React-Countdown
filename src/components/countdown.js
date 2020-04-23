@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "./countdown.css"
 
 class Countdown extends React.Component {
     constructor(props) {
@@ -9,6 +9,8 @@ class Countdown extends React.Component {
             hours: 0,
             minutes: 0,
             seconds: 0,
+            picture: false,
+            theme: "light"
         }
     }
 
@@ -38,12 +40,14 @@ class Countdown extends React.Component {
     render() {
 
         return (
-            <div>
-                <div>{this.state.days} days</div>
-                <div>{this.state.hours} hours</div>
-                <div>{this.state.minutes} minutes</div>
-                <div>{this.state.seconds} seconds</div>
-
+            <div className= {`countdown ${this.state.picture ? "picture" : ""}`}>
+                <div className="info"> 
+                <div>Countdown from {this.props.deadline}</div>
+                <div><span>{this.state.days}</span> days</div>
+                <div><span> {this.state.hours}</span> hours</div>
+                <div><span> {this.state.minutes}</span> minutes</div>
+                <div><span> {this.state.seconds}</span> seconds</div>
+                </div>
             </div>
         )
     }
