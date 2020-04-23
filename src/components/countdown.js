@@ -12,20 +12,37 @@ class Countdown extends React.Component {
         }
     }
 
+
+    componentDidMount() {
+        setInterval(() => this.calculateTheTime(this.props.deadline), 1000)
+
+            ;
+    }
+
     calculateTheTime(deadline) {
         const time = Date.parse(deadline) - Date.parse(new Date());
-        console.log("time", time);
-        
+        const seconds = Math.floor((time / 1000) % 60);
+        const minutes = Math.floor((time / 1000 / 60) % 60);
+        const hours = Math.floor(time / (1000 * 60 * 60) % 24);
+        const days = Math.floor(time / (1000 * 60 * 60 * 24));
+
+        this.setState({
+            days,
+            hours,
+            minutes,
+            seconds,
+        })
+
     }
 
     render() {
-        this.calculateTheTime(this.props.deadline)
-        return (      
-          <div>
-            <div>{this.state.days} days</div>
-        <div>{this.state.hours} hours</div>
-        <div>{this.state.minutes} minutes</div>
-        <div>{this.state.seconds} seconds</div>
+
+        return (
+            <div>
+                <div>{this.state.days} days</div>
+                <div>{this.state.hours} hours</div>
+                <div>{this.state.minutes} minutes</div>
+                <div>{this.state.seconds} seconds</div>
 
             </div>
         )
