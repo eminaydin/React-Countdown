@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Countdown from  "./components/countdown"
+import Reveal from "./components/reveal"
 
 class App extends React.Component {
   constructor(props) {
@@ -9,17 +10,30 @@ class App extends React.Component {
       deadline: "26 April 2020",
       picture: null,
       newDeadline: "",
+      timeLeft: 1,
     }
   }
+  timeCalculator = (time) =>{
+    this.setState({
+      timeLeft: time,
+    })
+  }
   render() {
+    console.log(this.state.timeLeft);
+    
     return (
       <div className="App">
         
-        <Countdown
-        deadline = {this.state.deadline}
-        picture ={this.state.picture}
-        newDeadline = {this.state.newDeadline}
-        />
+        {this.state.timeLeft > 0 
+      ?
+      <Countdown
+      deadline = {this.state.deadline}
+      picture ={this.state.picture}
+      newDeadline = {this.state.newDeadline}
+      parentFunc= {this.timeCalculator}
+      />
+    :
+  <Reveal /> }
         <div className="container">
         Be fast to be the first one 
         </div>
