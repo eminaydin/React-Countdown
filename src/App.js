@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
-import Countdown from  "./components/countdown"
-import Reveal from "./components/reveal"
+import Countdown from "./components/countdown/countdown"
+import Reveal from "./components/reveal/reveal";
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,31 +15,37 @@ class App extends React.Component {
       timeLeft: 1,
     }
   }
-  timeCalculator = (time) =>{
+  timeCalculator = (time) => {
     this.setState({
       timeLeft: time,
     })
   }
   render() {
-    console.log(this.state.timeLeft);
-    
+   
+
     return (
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <div className="App">
-        
-        {this.state.timeLeft > 0 
-      ?
-      <Countdown
-      deadline = {this.state.deadline}
-      picture ={this.state.picture}
-      newDeadline = {this.state.newDeadline}
-      parentFunc= {this.timeCalculator}
-      />
-    :
-  <Reveal /> }
+
+        {this.state.timeLeft > 0
+          ?
+
+          <div className="main-container"> 
+          <Countdown
+            deadline={this.state.deadline}
+            picture={this.state.picture}
+            newDeadline={this.state.newDeadline}
+            parentFunc={this.timeCalculator}
+          />
         <div className="container">
-        Be fast to be the first one 
+              Be fast to be the first one
         </div>
+          </div>
+          :
+          <Reveal />}
+
       </div>
+      </MuiPickersUtilsProvider>
     );
   }
 

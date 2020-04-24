@@ -1,9 +1,10 @@
 import React from 'react';
+import "./reveal.css"
 
 function Reveal() {
     
     return (
-    <div>
+    <div className="reveal">
         <p>asdsadsas</p>
     </div>)
 }
