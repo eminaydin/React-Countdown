@@ -1,18 +1,16 @@
 import React from 'react';
 import './App.css';
 import Countdown from "./components/countdown/countdown"
-import Reveal from "./components/reveal/reveal";
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
-
+import Reveal from "./components/reveal/reveal"
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      deadline: "26 April 2020",
-      picture: null,
+      deadline: "28 May 2020",
+      picture: "https://images.unsplash.com/photo-1587802480811-4be6efcdf373?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
       newDeadline: "",
       timeLeft: 1,
+      theme:"dark"
     }
   }
   timeCalculator = (time) => {
@@ -24,7 +22,7 @@ class App extends React.Component {
    
 
     return (
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      
       <div className="App">
 
         {this.state.timeLeft > 0
@@ -36,16 +34,17 @@ class App extends React.Component {
             picture={this.state.picture}
             newDeadline={this.state.newDeadline}
             parentFunc={this.timeCalculator}
+            theme = {this.state.theme}
           />
         <div className="container">
               Be fast to be the first one
         </div>
           </div>
           :
-          <Reveal />}
+         <Reveal/>}
 
       </div>
-      </MuiPickersUtilsProvider>
+      
     );
   }
 

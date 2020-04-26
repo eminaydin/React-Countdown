@@ -1,11 +1,10 @@
-import React, { Fragment, useState } from 'react';
+import React from 'react';
 import "./countdown.css"
-import Button from "@material-ui/core/Button";
-import { DateTimePicker } from "@material-ui/pickers";
+
 
 
 class Countdown extends React.Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -14,12 +13,12 @@ class Countdown extends React.Component {
             minutes: 0,
             seconds: 0,
             deadline: this.props.deadline,
-            selectedDate:new Date(),
-            
+           
+
         }
-      console.log(this.state.selectedDate);
-      
-      
+     
+
+
     }
 
 
@@ -54,39 +53,31 @@ class Countdown extends React.Component {
         })
 
     }
-    handleChange () {
-        
-        console.log(this.state.selectedDate);
-      
-    }
+
 
     render() {
-        const { selectedDate } = this.state;
 
         return (
-            <div className="countdown" style={{ background: this.props.picture ?  this.props.picture : "" }}>
+            <div className={`countdown ${this.props.theme === "dark" ? "dark" : ""}`} style = {this.props.picture ? (
+                {
+                    backgroundImage: "url(" + this.props.picture + ")",
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat'
+                }
+            ) :
+             {
+               
+            }}>
                 <div className="info">
                     <div>Countdown to {this.state.deadline}</div>
                     <div><span>{this.state.days}</span> days</div>
                     <div><span> {this.state.hours}</span> hours</div>
                     <div><span> {this.state.minutes}</span> minutes</div>
                     <div><span> {this.state.seconds}</span> seconds</div>
-                    <input placeholder="Start your own countdown" />
-                    <Fragment> 
-                    <DateTimePicker
-                   autoOk
-                   ampm={false}
-                   disablePast
-                   value={selectedDate}
-                   onChange={this.handleChange}
-                   label="24h clock"
-        
-      />
-      
-                        </Fragment>
-                    <Button variant="contained" color="primary" onClick={() => this.changeDeadline()}>
-  Primary
-</Button>
+                    <input placeholder="Start your own countdown"
+                    onChange= {event => this.setState({newDeadline: event.target.value})}/>
+                    <button onClick={() => this.changeDeadline()}> Submit</button>
                 </div>
             </div>
         )

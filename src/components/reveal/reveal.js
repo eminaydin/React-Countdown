@@ -5,7 +5,7 @@ function Reveal() {
     
     return (
     <div className="reveal">
-        <p>asdsadsas</p>
+        <h1> Time is up!</h1>
     </div>)
 }
 export default Reveal;

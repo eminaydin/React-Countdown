@@ -5,6 +5,10 @@
     justify-content: center;
     background-color: #a9a9a940;
 }
+.countdown.dark {
+    color: #FFF;
+    background-color: black;
+}
 .info > div {
     margin: 50px;
     font-size: 30px;

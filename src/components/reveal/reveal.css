@@ -1,4 +1,9 @@
 .reveal {
     height: 100vh;
     width: 100vw;
+    background-color: lavender;
+}
+.reveal h1 {
+    font-size: 100px;
+    text-align: center;
 }
