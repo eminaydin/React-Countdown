@@ -58,9 +58,10 @@ class Countdown extends React.Component {
     render() {
 
         return (
-            <div className={`countdown ${this.props.theme === "dark" ? "dark" : ""}`} style = {this.props.picture ? (
+            <div className="countdown">
+                <div className={`left-divider ${this.props.theme === "dark" ? "dark" : ""}`} style = {this.props.photo ? (
                 {
-                    backgroundImage: "url(" + this.props.picture + ")",
+                    backgroundImage: "url(" + this.props.photo + ")",
                     backgroundPosition: 'center',
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat'
@@ -68,7 +69,7 @@ class Countdown extends React.Component {
             ) :
              {
                
-            }}>
+            }}> 
                 <div className="info">
                     <div>Countdown to {this.state.deadline}</div>
                     <div><span>{this.state.days}</span> days</div>
@@ -79,6 +80,11 @@ class Countdown extends React.Component {
                     onChange= {event => this.setState({newDeadline: event.target.value})}/>
                     <button onClick={() => this.changeDeadline()}> Submit</button>
                 </div>
+                </div>
+
+                <div className="message-container">
+              <p>Be fast to be the first one</p>
+        </div>
             </div>
         )
     }

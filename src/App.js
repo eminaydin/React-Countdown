@@ -2,15 +2,15 @@ import React from 'react';
 import './App.css';
 import Countdown from "./components/countdown/countdown"
 import Reveal from "./components/reveal/reveal"
+import photo from  "./photo-1587802480811-4be6efcdf373.jpeg";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       deadline: "28 May 2020",
-      picture: "https://images.unsplash.com/photo-1587802480811-4be6efcdf373?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
       newDeadline: "",
       timeLeft: 1,
-      theme:"dark"
     }
   }
   timeCalculator = (time) => {
@@ -28,17 +28,17 @@ class App extends React.Component {
         {this.state.timeLeft > 0
           ?
 
-          <div className="main-container"> 
+          <div className="main-wrapper"> 
           <Countdown
             deadline={this.state.deadline}
             picture={this.state.picture}
             newDeadline={this.state.newDeadline}
             parentFunc={this.timeCalculator}
-            theme = {this.state.theme}
+            theme = {"light"}
+            photo = {photo}
+            title = "sdfdsfsdfsd"
           />
-        <div className="container">
-              Be fast to be the first one
-        </div>
+
           </div>
           :
          <Reveal/>}

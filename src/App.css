@@ -2,14 +2,8 @@
   display: flex;
   text-align: center;
   height: 100vh;
+  background-color: #ffe3c36b;
 }
-.main-container{
-  display: flex;
-}
-.container {
-font-size: 40px;
-align-self: center;
-font-weight: 100;
-margin-left: 30px;
-letter-spacing: 5px;
+.main-wrapper {
+  width: 100vw;
 }
