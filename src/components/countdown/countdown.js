@@ -83,7 +83,9 @@ class Countdown extends React.Component {
                 </div>
 
                 <div className="message-container">
-              <p>Be fast to be the first one</p>
+
+                    <h1>{this.props.header}</h1>
+              <p>{this.props.text}</p>
         </div>
             </div>
         )

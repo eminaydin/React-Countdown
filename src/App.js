@@ -36,7 +36,8 @@ class App extends React.Component {
             parentFunc={this.timeCalculator}
             theme = {"light"}
             photo = {photo}
-            title = "sdfdsfsdfsd"
+            header = "Just around the corner!"
+            text = "Motivate yourself"
           />
 
           </div>
