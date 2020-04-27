@@ -28,23 +28,29 @@ class Countdown extends React.Component {
 
     componentWillUnmount() {
         clearInterval(this.interval)
-
+        console.log(
+            "hello"
+        );
+        
     }
 
     calculateTheTime(deadline) {
         const time = Date.parse(deadline) - Date.parse(new Date());
-        this.props.parentFunc(time);
+        if (time > 0) {
         const seconds = Math.floor((time / 1000) % 60);
         const minutes = Math.floor((time / 1000 / 60) % 60);
         const hours = Math.floor(time / (1000 * 60 * 60) % 24);
         const days = Math.floor(time / (1000 * 60 * 60 * 24));
-
         this.setState({
             days,
             hours,
             minutes,
             seconds,
         })
+     }
+        else {this.props.parentFunc();}
+        
+
     }
     changeDeadline() {
 
@@ -90,5 +96,9 @@ class Countdown extends React.Component {
             </div>
         )
     }
+}
+Countdown.defaultProps = {
+    header: "Just around the corner!",
+    text: "Motivate yourself"
 }
 export default Countdown;

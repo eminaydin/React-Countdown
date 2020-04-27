@@ -10,12 +10,13 @@ class App extends React.Component {
     this.state = {
       deadline: "28 May 2020",
       newDeadline: "",
-      timeLeft: 1,
+      timeLeft: true,
     }
   }
-  timeCalculator = (time) => {
+  
+  timeCalculator = () => {
     this.setState({
-      timeLeft: time,
+      timeLeft: false,
     })
   }
   render() {
@@ -25,7 +26,7 @@ class App extends React.Component {
       
       <div className="App">
 
-        {this.state.timeLeft > 0
+        {this.state.timeLeft
           ?
 
           <div className="main-wrapper"> 
@@ -34,10 +35,8 @@ class App extends React.Component {
             picture={this.state.picture}
             newDeadline={this.state.newDeadline}
             parentFunc={this.timeCalculator}
-            theme = {"light"}
             photo = {photo}
-            header = "Just around the corner!"
-            text = "Motivate yourself"
+            theme = "light"
           />
 
           </div>
