@@ -9,3 +9,5 @@ Later on I've decided to implement my function to be more dinamic so that when I
 ## Challenges
 
 First challenge I've faced was to pass the data from child to parent component. To pass it other way around I could simply pass the props down the tree, but vice versa was a bit tricky. Then I've created a function in parent component to call it when the condition that I've declared changes in child component. This way of implementation helped me quite a lot to learn how to pass data through the react component tree.
+
+Live version is here : https://countdown-react.netlify.app/
