@@ -4,7 +4,7 @@ React is the main tool in this project. My main goal in this individual project 
 
 To create `countdown` component I've used vanilla javascript features where I get the initial date along with the current time and then do the calculation to see how much time left. Once that time hits 0 then I display the `reveal` component. 
 
-Later on I've decided to implement my function to be more dinamic so that when I introduce input field where user can type in specific date the countdown will still be valid and would be able to run without problem. 
+Later on I've decided to implement my function to be more dynamic so that when I introduce input field where user can type in specific date the countdown will still be valid and would be able to run without problem. 
 
 ## Challenges
 
