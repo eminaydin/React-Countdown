@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      deadline: "28 May 2020",
+      deadline: "31 December 2020",
       newDeadline: "",
       timeLeft: true,
     }
